@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <h3>Click below for a compliment</h3>
+    <button id="complimentButton">Get a compliment</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+    </script>
+
+<br>
+<h3>Get your daily fortune. Click below</h3>
+    <button id="fortuneButton">Get a fortune</button>
+
+    <script>
+      document.getElementById("fortuneButton").onclick = function () {
+        axios.get("http://localhost:4000/api/fortune/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+    </script>
+
+<br>
+<h3>Which superhero are you today?</h3>
+<button id="superheroButton">Power Up!</button>
+
+<script>
+document.getElementById("superheroButton").onclick = function () {
+    axios.get("http://localhost:4000/api/superhero/")
+    .then(function (response) {
+      const data = response.data;
+      alert(data);
+    });
+  };
+
+</script>
+<br>
+<h3>Young wizard, to which house do you belong at Hogwarts?</h3>
+<button id="HogwartsButton">Get sorted</button>
+
+<script>
+  document.getElementById("HogwartsButton").onclick = function () {
+    axios.get("http://localhost:4000/api/Hogwarts/")
+    .then(function (response) {
+      const data = response.data;
+      alert(data);
+    });
+  };
+</script>
+
+<h3>Get your daily Jedi message from Master Yoda</h3>
+<button id="yodaButton">Submit you will</button>
+<script>
+  document.getElementById("yodaButton").onclick = function () {
+    axios.get("http://localhost:4000/api/yoda/")
+    .then(function(response) {
+      const data = response.data;
+      alert(data);
+    });
+    }
+  
+</script>
+
+<!-- I couldn't get this to work just right. I'm sure it's a simple fix too. -->
+<h3>Create a user name below for a chance to win a trip to Hawaii</h3>
+<form id="form1">
+  Username: <input type="text" name="username"><br>
+  First Name: <input type="text" name="fname"><br>
+  Last Name: <input type="text" name="lname"><br>
+ <button type="submit">Submit</button>
+</form>
+<br>
+  <script>
+    let user = {
+    username: "",
+    firstName: "",
+    lastName: "", 
+    }
+    axios.post("http://localhost:4000/api/user", user).then(function (response) {
+      const data = response.data;
+      alert(data);
+    })
+  </script>
+  
+  <script>
+    function reset() {
+      document.getElementById("form1").reset();
+    }
+  </script>
+  </body>
+</html>
